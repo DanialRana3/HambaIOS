@@ -1,0 +1,24 @@
+﻿==Release notes_du Co Headline 16==
+
+Compiler of release notes: Dalton Maag
+Designer: Dalton Maag
+Designer URL: daltonmaag.com
+
+Date of creation: 2014-07-21
+
+Changes since previous release:
+- Added cyrillic and greek scripts.
+- Changed embedding settings to Installable.
+
+Basic information 
+1 Basic Family name: du Co Headline 16
+2 TrueType Version record: 2.000
+3 Supported scripts : Latin, Arabic, Greek, Cyrillic
+4 Number of glyphs: 1148
+5 Weights/Styles: Light, Regular, Bold
+
+Technology 
+1 Files formats: The files have been delivered in the TrueType-based OpenType format, for use in all major Operating Systems, and in web font format: EOT; WOFF; WOFF2.
+2 Embedding settings: Everything is allowed (installable mode); subsetting is allowed.
+3 Hinting information: All glyphs are manually hinted for optimized rasterization in Microsoft ClearType or for other LCD devices.
+4 Default numerals: Proportional numerals as default.

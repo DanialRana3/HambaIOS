@@ -1,0 +1,6 @@
+framework module Pods_Hamba {
+  umbrella header "Pods-Hamba-umbrella.h"
+
+  export *
+  module * { export * }
+}
