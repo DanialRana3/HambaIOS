@@ -50,3 +50,5 @@ class VerificationViewController: XBViewController,GIDSignInUIDelegate,GIDSignIn
     @IBAction func didTappedVerifyAgain(_ sender: UIButton) {
     }
 }
+
+

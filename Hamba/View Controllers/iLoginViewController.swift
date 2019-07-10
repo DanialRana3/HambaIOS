@@ -73,6 +73,7 @@ class iLoginViewController: XBViewController,GIDSignInUIDelegate,GIDSignInDelega
         PhoneTF.parentViewController = self // or from @IBOutlet
         PhoneTF.setPlaceholder(color: .white, string: "Phone number")
 
+        self.dialCode = PhoneTF.selectedCountry!.phoneCode
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -143,6 +144,9 @@ class iLoginViewController: XBViewController,GIDSignInUIDelegate,GIDSignInDelega
                     }
                     
                     
+                    let rootVC:HelloViewController = self.storyboard?.instantiateViewController(withIdentifier: "HelloViewController") as! HelloViewController
+                    UIApplication.shared.keyWindow?.rootViewController = rootVC
+                    
                 }
             })
         }
@@ -170,6 +174,8 @@ class iLoginViewController: XBViewController,GIDSignInUIDelegate,GIDSignInDelega
                 return
             }
             
+            let rootVC:HelloViewController = self.storyboard?.instantiateViewController(withIdentifier: "HelloViewController") as! HelloViewController
+            UIApplication.shared.keyWindow?.rootViewController = rootVC
 //            if user?.email != nil {
 //                
 //                self.signinWith(email: user?.email as! String, name: user?.displayName as! String, provider: "Google")

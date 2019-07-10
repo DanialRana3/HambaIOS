@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
         self.makeBorderWhiteBox(uiview: shopView)
         self.makeBorderWhiteBox(uiview: customerView)
         self.makeUnderlinedText()
+        
         self.loader.isHidden = true
         
         for family: String in UIFont.familyNames
@@ -46,7 +47,6 @@ class MainViewController: UIViewController {
     }
     
     func makeUnderlinedText(){
-        
         //set underline with terms and conditions
         let labelString = "Continue As a Guest"
         let textColor: UIColor = UIColor(red:0.00, green:0.40, blue:0.38, alpha:1.0)
@@ -131,7 +131,6 @@ class MainViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
-
 }
 
 class ShopTempData {

@@ -9,18 +9,19 @@
 import UIKit
 
 class verifyCodesViewController: XBViewController {
-
     
     @IBOutlet weak var emailCode_view: UIView!
     
     @IBOutlet weak var emailCode_text: UITextField!
     
+    @IBOutlet weak var phCode_text: UITextField!
+    @IBOutlet weak var phCode_view: UIView!
     @IBOutlet weak var emailCode_error: UILabel!
     
+    @IBOutlet weak var phCode_Lbl: UILabel!
     @IBOutlet weak var verifyCode_Btn: UIButton!
     
     var userID = ""
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +30,16 @@ class verifyCodesViewController: XBViewController {
         self.uiInit()
     }
     
-
     func uiInit(){
         emailCode_view.setCurverBorderView(borderColor: .white, size: 20)
-        emailCode_text.setPlaceholder(color: .white, string: "******")
+        emailCode_text.setPlaceholder(color: .white, string: "Email Code")
         verifyCode_Btn.setCurveBorderButton(color: .clear, size: 20)
         emailCode_error.text = ""
+        
+        phCode_view.setCurverBorderView(borderColor: .white, size: 20)
+        phCode_text.setPlaceholder(color: .white, string: "SMS Code")
+        verifyCode_Btn.setCurveBorderButton(color: .clear, size: 20)
+        phCode_Lbl.text = ""
     }
     /*
     // MARK: - Navigation
@@ -67,9 +72,6 @@ class verifyCodesViewController: XBViewController {
                 self.showStatusBarMessage(msg: tempResp.message, color: UIColor.red)
             }
         })
-        
-        
-        
     }
     
     func validateData()->Bool{
@@ -77,17 +79,15 @@ class verifyCodesViewController: XBViewController {
         var isValid:Bool = true
         self.emailCode_error.text = ""
         
-        if self.emailCode_text.text == "" {
-            self.emailCode_error.text = "Code is empty"
+        if self.emailCode_text.text!.count != 6 {
+            emailCode_error.text = "Email Code must be 6-digit"
             isValid = false
         }
         
-        if self.emailCode_text.text!.count < 6 {
-            emailCode_error.text = "Code must be 6-digit"
+        if self.phCode_text.text!.count != 6 {
+            phCode_Lbl.text = "Phone Code must be 6-digit"
             isValid = false
         }
-        
         return isValid
     }
-    
 }

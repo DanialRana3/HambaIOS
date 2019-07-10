@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - CountryPickerView (3.0.1)
   - EVReflection (5.10.1):
     - EVReflection/Core (= 5.10.1)
   - EVReflection/Core (5.10.1)
@@ -118,6 +119,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - CountryPickerView
   - EVReflection
   - FacebookCore
   - FacebookLogin
@@ -134,6 +136,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - CountryPickerView
     - EVReflection
     - FacebookCore
     - FacebookLogin
@@ -161,6 +164,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CountryPickerView: 7069fdb43c2c8a17f214acae6a1a3a4786aeb814
   EVReflection: 8124de482178d34ccd56473e16cd95990f9a1113
   FacebookCore: 4eee98476cb37a485af5d337eb21f8cd5b3c7e6c
   FacebookLogin: 94cdad6850e86a2b04704dedfe7674a7af8148eb
@@ -186,6 +190,6 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: b19ddab2576f805cbe0fb2306cba3476e09a1dea
   SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
 
-PODFILE CHECKSUM: 08a0a83a1cf59844f612c3053921371ad5f9d594
+PODFILE CHECKSUM: 19f404776f3f7d6d3a47f3062094c51472b78531
 
 COCOAPODS: 1.7.1

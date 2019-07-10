@@ -26,8 +26,6 @@ class BESingUpViewController: XBViewController {
     @IBOutlet weak var signupView: UIView!
     @IBOutlet weak var signup: UIButton!
 
-
-    
     @IBOutlet weak var shopNameValidate: UILabel!
     @IBOutlet weak var presahredKeyValidate: UILabel!
     @IBOutlet weak var emailValidate: UILabel!
@@ -38,8 +36,8 @@ class BESingUpViewController: XBViewController {
     var BO_id: String!
     
 
-////
-////    var users: Users?
+    
+    ////    var users: Users?
 ////    var handle: AuthStateDidChangeListenerHandle?
 ////    var ref: DatabaseReference!
 //    var user = Auth.auth().currentUser
@@ -62,6 +60,7 @@ class BESingUpViewController: XBViewController {
         // Do any additional setup after loading the view.
         self.uiInit()
     }
+    
     func uiInit(){
             usernameView.setCurverBorderView(borderColor: .white, size: 20)
             phone_TFView.setCurverBorderView(borderColor: .white, size: 20)
@@ -69,12 +68,11 @@ class BESingUpViewController: XBViewController {
             passwordView.setCurverBorderView(borderColor: .white, size: 20)
         
             signup.setCurveBorderButton(color: .clear, size: 20)
-        
             username.setPlaceholder(color: .white, string: "Email / User Name")
             phone_TF.setPlaceholder(color: .white, string: "Phone")
             shopName.text = self.storeName
             shopName.isUserInteractionEnabled = false
-            password.setPlaceholder(color: .white, string: "*******")
+            password.setPlaceholder(color: .white, string: "Password")
         
         shopNameValidate.text = ""
         presahredKeyValidate.text = ""
@@ -93,7 +91,8 @@ class BESingUpViewController: XBViewController {
         password.rightViewMode = .always
         password.rightView = eyeButton
     }
-
+    
+    
     //eyeIcon st#4
     @objc func showhide(){
 
@@ -115,7 +114,7 @@ class BESingUpViewController: XBViewController {
     }
     
     func addRightInfoButtonToTextfield(){
-
+        
         let infoButton  = UIButton(type: .infoDark)
         infoButton.tintColor = .white
         //        eyeButton.setImage(image, for: .normal)bplist00’

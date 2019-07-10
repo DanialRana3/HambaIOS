@@ -133,8 +133,7 @@ class ApiManager {
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept": "application/json"
         ]
-        
-        
+
         let parameters: Parameters = [
             "store_name": storeName,
             "email": email,
@@ -252,7 +251,91 @@ class ApiManager {
                     //                    print(ProductResponse.data.count)
                 }
             })
-        
     }
     
+    func forgotPassword(email: String,completionHandler: @escaping APICompletionHandler)
+    {
+        
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept": "application/json"
+        ]
+        
+        let parameters: Parameters = [
+            "email" : email
+        ]
+        
+        request(
+            ServerURL.forgotPassword,
+            method :.post,
+            parameters: parameters,
+            encoding: URLEncoding.httpBody,
+            headers: headers
+            ).responseString(completionHandler: { (dataResponse: DataResponse<String>) in
+                
+                var ResponseObj = forgotPassword_Response()
+                print("call completed")
+                print(dataResponse)
+                var statusCode = false
+                
+                if dataResponse.response != nil {
+                    statusCode = true
+                }
+                defer
+                {
+                    
+                    completionHandler(statusCode,"true",ResponseObj)
+                }
+                if dataResponse.response != nil
+                {
+                    EVReflection.setBundleIdentifier(forgotPassword_Response.self)
+                    ResponseObj = forgotPassword_Response(json: dataResponse.result.value!)
+                    //                    print(ProductResponse.data.count)
+                }
+            })
+    }
+    
+    func resetPassword(userID: String,password: String,code: String,completionHandler: @escaping APICompletionHandler)
+    {
+        let headers: HTTPHeaders = [
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Accept": "application/json"
+        ]
+        
+        let parameters: Parameters = [
+            "user_id" : userID,
+            "password" : password,
+            "confirm_password" : password,
+            "verification_code" : code
+            ]
+        
+        request(
+            ServerURL.resetPassword,
+            method :.post,
+            parameters: parameters,
+            encoding: URLEncoding.httpBody,
+            headers: headers
+            ).responseString(completionHandler: { (dataResponse: DataResponse<String>) in
+                
+                var ResponseObj = BaseResponse()
+                print("call completed")
+                print(dataResponse)
+                var statusCode = false
+                
+                if dataResponse.response != nil {
+                    statusCode = true
+                }
+                defer
+                {
+                    
+                    completionHandler(statusCode,"true",ResponseObj)
+                }
+                if dataResponse.response != nil
+                {
+                    EVReflection.setBundleIdentifier(BaseResponse.self)
+                    ResponseObj = BaseResponse(json: dataResponse.result.value!)
+                    //                    print(ProductResponse.data.count)
+                }
+            })
+    }
 }

@@ -45,7 +45,10 @@ class BuisnessSignIn_Response:BaseResponse{
     var data : UserData!
 }
 
-
+class forgotPassword_Response:BaseResponse{
+    
+    var data : String!
+}
 class getStoreKeyInfo_Response:BaseResponse{
     var data : getStoreKeyInfo_Model!
 }

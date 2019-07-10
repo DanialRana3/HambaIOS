@@ -25,8 +25,6 @@ class storeKeyViewController: XBViewController {
         self.uiInit()
     }
     
-    
-    
     @IBAction func verifyBtn_Action(_ sender: Any) {
         if !validateData() {
             return
@@ -48,9 +46,6 @@ class storeKeyViewController: XBViewController {
                  self.showStatusBarMessage(msg: tempResp.message, color: UIColor.red)
             }
         }
-        
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

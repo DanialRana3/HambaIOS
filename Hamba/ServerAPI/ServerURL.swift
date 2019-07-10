@@ -14,6 +14,6 @@ class ServerURL
     static let loginUser = "http://api.hamba.io/api/v1/login"
     static let getstorekeyinfo = "http://api.hamba.io/api/v1/getstorekeyinfo"
     static let verifyCode = "http://api.hamba.io/api/v1/verify"
-    
-    
+    static let forgotPassword = "http://api.hamba.io/api/v1/forgot"
+    static let resetPassword = "http://api.hamba.io/api/v1/resetpassword"
 }

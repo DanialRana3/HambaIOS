@@ -59,7 +59,7 @@ class BOSignUpViewController: XBViewController{
         BussinessEmailTF.setPlaceholder(color: .white, string: "Bussiness@abc.com")
         BussinessNumberTF.setPlaceholder(color: .white, string: "+91 123 134 444")
         BussinessCityTF.setPlaceholder(color: .white, string: "Enter your city name")
-        BussinessPasswordTF.setPlaceholder(color: .white, string: "********")
+        BussinessPasswordTF.setPlaceholder(color: .white, string: "Password")
         
         //set curve button
         Signup.setCurveBorderButton(color: .clear, size: 20)
@@ -102,7 +102,6 @@ class BOSignUpViewController: XBViewController{
             buisnessNumber_error.text = "Bussiness Number is empty"
             isValid = false
         }
-            
         
         if self.BussinessCityTF.text == "" {
             city_error.text = "City is empty"
@@ -122,8 +121,8 @@ class BOSignUpViewController: XBViewController{
         if !validateData() {
             return
         }
+        
         self.startActivityIndicator(withMsg: "Registering")
-       
         ApiManager.shared().signup_BuisnessOwner(buisnessName: self.BussinessNameTF.text!, email: self.BussinessEmailTF.text!, pass: self.BussinessPasswordTF.text!, phone: self.BussinessNumberTF.text!, completionHandler: { (status, message, data) in
             print(message)
             self.stopActivityIndicator()

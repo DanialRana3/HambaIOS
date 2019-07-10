@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import FlagPhoneNumber
 
 class ProfileViewController: UIViewController {
 
+    
+    var isGenderMale = true
     
     @IBOutlet weak var FullNameView: UIView!
     @IBOutlet weak var FullNameTF: UITextField!
@@ -31,7 +34,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var DOBTF: UITextField!
 
     @IBOutlet weak var CountryView: UIView!
-    @IBOutlet weak var CountryTF: UITextField!
+    @IBOutlet weak var CountryTF: FPNTextField!
 
     @IBOutlet weak var CityView: UIView!
     @IBOutlet weak var CityTF: UITextField!
@@ -53,6 +56,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet weak var UpdateButton: UIButton!
     
+    let datePicker = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,22 +67,18 @@ class ProfileViewController: UIViewController {
         FullNameTF.setPlaceholder(color: .lightGray, string: "Jhon Doe")
         
         EmailView.setCurverBorderView(borderColor: .lightGray, size: 20)
-        EmailTF.setPlaceholder(color: .lightGray, string: "abcd@abcd.com")
+        EmailTF.setPlaceholder(color: .lightGray, string: "abc@mail.com")
         
         PhoneView.setCurverBorderView(borderColor: .lightGray, size: 20)
         PhoneTF.setPlaceholder(color: .lightGray, string: "+971 555 22 333")
         
-        GenderView.setCurverBorderView(borderColor: .lightGray, size: 20)
-        GenderTF.text = "Female"
-        GenderTF.isEnabled = false
-        FemaleButton.setCurveBorderButton(color: .clear, size: 12.5)
-        FemaleButton.backgroundColor = Colors.bussiness_type_dark_green
-        FemaleImage.tintColor = .white
+       
         
         DOBView.setCurverBorderView(borderColor: .lightGray, size: 20)
         DOBTF.setPlaceholder(color: .lightGray, string: "19/02/1996")
+        
 
-        CountryView.setCurverBorderView(borderColor: .white, size: 20)
+        CountryView.setCurverBorderView(borderColor: .lightGray, size: 20)
         CountryTF.setPlaceholder(color: .lightGray, string: "Pakistan")
 
         CityView.setCurverBorderView(borderColor: .lightGray, size: 20)
@@ -87,27 +87,81 @@ class ProfileViewController: UIViewController {
         ZipView.setCurverBorderView(borderColor: .lightGray, size: 20)
         ZipTF.setPlaceholder(color: .lightGray, string: "Zip Code")
 
-        NationalityView.setCurverBorderView(borderColor: .white, size: 20)
-        NationalityTF.setPlaceholder(color: .white, string: "Pakistani")
+        NationalityView.setCurverBorderView(borderColor: .lightGray, size: 20)
+        NationalityTF.setPlaceholder(color: .lightGray, string: "Pakistani")
 
         NationaIDOView.setCurverBorderView(borderColor: .lightGray, size: 20)
-        NationaIDOTF.setPlaceholder(color: .white, string: "National # or Passport #")
+        NationaIDOTF.setPlaceholder(color: .lightGray, string: "National # or Passport #")
 
         NationaIDView.setCurverBorderView(borderColor: .lightGray, size: 20)
-        NationaIDTF.setPlaceholder(color: .darkGray, string: "National # or Passport #")
+        NationaIDTF.setPlaceholder(color: .lightGray, string: "National # or Passport #")
 
         ProfileDescView.setCurverBorderView(borderColor: .lightGray, size: 20)
 //        ProfileDescTV.setPlaceholder(color: .lightGray, string: "National # or Passport #")
 
         UpdateButton.setCurveBorderButton(color: .clear, size: 20)
+        
+        self.setDatePicker()
+        
+        
+        
+        
     }
     
 
+    func setDatePicker(){
+        //Formate Date
+        datePicker.datePickerMode = .date
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        DOBTF.inputAccessoryView = toolbar
+        DOBTF.inputView = datePicker
+    }
+    @objc func donedatePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        DOBTF.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    @objc func cancelDatePicker(){
+        self.view.endEditing(true)
+    }
+    
+    func genderInit() {
+        GenderView.setCurverBorderView(borderColor: .lightGray, size: 20)
+      GenderTF.isEnabled = false
+        FemaleImage.layer.cornerRadius = 12.5
+        MaleImage.layer.cornerRadius = 12.5
+        
+        if isGenderMale {
+            MaleImage.backgroundColor = .green
+            FemaleImage.backgroundColor = .clear
+            GenderTF.text = "Male"
+        }else{
+            MaleImage.backgroundColor = .clear
+            FemaleImage.backgroundColor = .green
+            GenderTF.text = "Female"
+        }
+    }
     @IBAction func didTappedUpdate(_ sender: UIButton) {
         
         
     }
     
     
+    @IBAction func maleBtn(_ sender: Any) {
+        isGenderMale = true
+        self.genderInit()
+    }
     
+    @IBAction func femaleBtn_action(_ sender: Any) {
+        isGenderMale = false
+        self.genderInit()
+    }
 }
+

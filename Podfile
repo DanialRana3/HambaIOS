@@ -25,4 +25,6 @@ pod "EVReflection"
   pod 'Alamofire', '~> 4.0'
 pod 'SwiftMessages'
 
+pod 'CountryPickerView'
+
 end

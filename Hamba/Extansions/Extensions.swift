@@ -16,9 +16,7 @@ import Accelerate
 
 class XBViewController: UIViewController,NVActivityIndicatorViewable {}
 
-
-
-  // MARK: - Validation Extensions
+// MARK: - Validation Extensions
 extension XBViewController {
 
     typealias callBack = (_ success:Bool) -> Void
